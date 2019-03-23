@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require 'fox16'
 require 'logger'
+require 'net/scp'
 include Fox
 
 class FXScp < FXMainWindow
@@ -174,7 +175,7 @@ class FXScp < FXMainWindow
     res_box = FXGroupBox.new(@packer, 'Operations', opts: FRAME_RIDGE | LAYOUT_FILL_X)
 
     begin_button = FXButton.new(res_box, 'Begin SCP', opts: BUTTON_AUTOGRAY)
-  end
+end
 
   def create
     super
@@ -191,4 +192,10 @@ class FXScp < FXMainWindow
       app.run
     end
   end
+
+  def scp_msg(remote_host,username,local_path,remote_path,direction)
+    puts "calling scp command here"
+    # Net::SCP.upload!()
+  end
+
 end
